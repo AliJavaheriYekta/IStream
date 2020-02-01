@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Search{% endblock %}
+{% block search %}
+{% endblock %}
+
+{% block content %}
+    {% if "name" in request.GET %}
+        <h1>Streams containing "{{ cd.name }}"</h1>
+        <h3 id="search-header">Found {{ total_results }} result{{ total_results|pluralize }}  <a id="search-again" class="like button" href="{% url "images:stream_search" %}">Search again</a></h3>
+
+        <div id="image-list" style="margin-top: 40px">
+        {% for result in results %}
+            <div class="image">
+                <a href="{{ result.url }}">
+                    <a href="{{ result.url }}">
+						<img src={{result.banner}} alt="" />
+                    </a>
+                </a>
+                <div class="info">
+                    <a href="{{ result.url }}" class="title">{{ result.user_name }}</a>
+                </div>
+            </div>
+        {% empty %}
+            <div class="alert alert-warning">
+                There are no results for your search
+            </div>
+        {% endfor %}
+        </div>
+        <p></p>
+    {% else %}
+        <h1>Search for Streams</h1>
+        <form action="." method="get">
+            {{ sform.as_p }}
+            <input type="submit" value="Search">
+        </form>
+    {% endif %}
+{% endblock %}

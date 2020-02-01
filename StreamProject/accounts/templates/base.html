@@ -1,0 +1,115 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link href="{% static "css/profile.css" %}" rel="stylesheet">
+    <script src="{% static "js/jquery-2.2.2.min.js" %}" rel="script"></script>
+    <script src="{% static "js/bootstrap.min.js" %}" rel="script"></script>
+    <script src="{% static "js/bootstrap.js" %}" rel="script"></script>
+    <script src="{% static "js/profile.js" %}" rel="script"></script>
+    <script src="{% static "js/waypoints/lib/jquery.waypoints.min.js" %}" rel="script"></script>
+    <script src="{% static "js/waypoints/lib/shortcuts/infinite.min.js" %}" rel="script"></script>
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>#}
+    <script>
+    $(document).ready(function(){
+        $("#close").click(function(){
+            $("#msg").remove();
+        });
+    });
+    </script>
+</head>
+<body>
+<div id="header">
+    <nav id="header-nav" class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand">
+                    <span class="logo"><a href="{% url "images:stream_list" %}"> IStream </a></span>
+                </div>
+
+    {% if request.user.is_authenticated %}
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+            </div>
+            <div id="collapsable-nav" class="collapse navbar-collapse">
+                <ul id="nav-list" class="menu nav navbar-nav navbar-right">
+                    <li class="show_br" {% if section == "dashboard" %}class="selected"{% endif %}><a href="{% url "dashboard" %}">My dashboard</a></li>
+                    <li class="show_br" {% if section == "images" %}class="selected"{% endif %}><a href="{% url "images:my_stream_list" %}">Streams</a></li>
+                    <li class="show_br" {% if section == "people" %}class="selected"{% endif %}><a href="{% url "user_list" %}">People</a></li>
+                    <li class="show_br" {% if section == "search" %}class="selected"{% endif %}><a href="{% url "images:stream_search" %}">Search</a></li>
+                    <li class="show_br">
+                        <span class="user">
+                        {% if request.user.is_authenticated %}
+                            Hello {{ request.user.first_name }}, <a href="{% url "logout" %}">Logout</a>
+                        {% else %}
+                            <a href="{% url "login" %}">Log-in</a>
+                        {% endif %}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+    {% endif %}
+        </div>
+    </nav>
+</div>
+{% if messages %}
+    <ul id="msg" class="messages">
+        {% for message in messages %}
+            <li  class="{{ message.tags }}">
+                {{ message|safe}}
+                <a id="close" href="#" class="close">x</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<script src="{% static "js/jquery-1.12.4.min.js" %}"></script>
+<script src="{% static "js/jquery.cookie.min.js" %}"></script>
+<script>
+    var csrftoken = $.cookie('csrftoken');
+    function csrfSafeMethod(method) {
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+    $(document).ready(function(){
+        (function () {
+            $('#res-men-btn > div').click(function () {
+                var parent = $(this).parent('#res-men-btn');
+                var lines = $(this).find('span');
+                parent.toggleClass('men-close men-open');
+                if (parent.hasClass('men-open')) {
+                    lines.addClass('active');
+                    parent.next('ul.list-inline').slideDown(400);
+                } else {
+                    lines.removeClass('active');
+                    parent.next('ul.list-inline').slideUp(400);
+                }
+            });
+        })();
+        {% block domready %}
+        {% endblock %}
+    });
+
+
+</script>
+</body>
+</html>

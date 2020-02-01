@@ -1,0 +1,653 @@
+@import url(http://fonts.googleapis.com/css?family=Muli);
+
+body {
+    margin:0;
+    padding:0;
+    font-family:helvetica, sans-serif;
+}
+
+* {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+p {
+    line-height: 1.8;
+}
+
+a {
+    color:#12c064;
+    text-decoration:none;
+}
+
+a:hover {
+    color:#00a74f;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight:normal; }
+
+h1 {
+    border-bottom:1px solid #bbb;
+    padding:0 0 10px 0;
+    margin:50px 0 20px 0;
+}
+
+h2 {
+    margin:30px 0 20px;
+}
+
+ol {
+    line-height:1.5;
+}
+
+.btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .modal-header:after, .modal-header:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
+    display: none;
+    content: " ";
+}
+
+.well{
+    margin-top: 60px;!important;
+}
+
+#header {
+    padding:1px 1px 1px 1px;
+    top:0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    /*width: 84%;*/
+    position: fixed;
+    font-size:14px;
+    background:#12c064;
+    color:#fff;
+    border-bottom:4px solid #1cdf78;
+    overflow:auto;
+}
+
+.navbar-default{
+    background-color: inherit;
+    border: none;
+}
+
+#header-nav {
+  background-color: #12c064;
+  border-radius: 0;
+  border: 0;
+}
+
+.navbar{
+	margin-bottom: 0px;
+}
+
+.navbar-brand {
+  padding-top: 22px;
+}
+
+.navbar-brand h1 { /* Restaurant name */
+  font-family: 'Lora', serif;
+  color: #FFFFFF;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: .75;
+}
+.navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration: none;
+}
+.navbar-brand p { /* Kosher cert */
+  color: #000;
+  text-transform: uppercase;
+  font-size: .7em;
+  margin-top: 15px;
+}
+.navbar-brand p span { /* Star-K */
+  vertical-align: middle;
+}
+
+#nav-list {
+  margin-top: 10px;
+}
+#nav-list a {
+  color: #ffffff;
+  text-align: center;
+}
+#nav-list a:hover {
+    background: #11bb60;
+}
+#nav-list a span {
+  font-size: 1.8em;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+  border: 1px solid #61122f;
+}
+.navbar-header button.navbar-toggle {
+  clear: both;
+  margin-top: -20px;
+}
+
+
+
+#header .logo {
+    font-family: 'Muli', sans-serif;
+    float:left;
+    color:#f3f7cc;
+    font-size:20px;
+    margin-right:10%;
+}
+
+.navbar-brand{
+    height: 0;
+}
+
+#header ul.menu {
+    list-style:none;
+    /*float:left;*/
+    overflow: hidden;
+    margin:0;
+    padding:0;
+}
+#header ul.menu li {
+    float:left;
+    padding:10px 10px 0 10px ;
+}
+
+#header ul.menu li.selected a, #header ul.menu li.selected a:hover {
+    color:#1b6d32;
+    font-weight:bold;
+}
+
+#header a {
+    color:#f3f7cc;
+}
+#header a:hover {
+    color:#fff;
+}
+
+#header .user {
+    float:right;
+    padding-top:15px;
+    text-align: center;
+}
+
+#content {
+    padding:10px 100px;
+    margin-top: 20px;
+}
+
+/* forms */
+form {
+    overflow:auto;
+}
+
+form p {
+    width:100%;
+    overflow:auto;
+}
+
+label {
+    float:left;
+    clear:both;
+    color:#333;
+    margin-bottom:4px;
+}
+input, textarea {
+    clear:both;
+    float:left;
+    margin:0 0 10px;
+    background:#efefef;
+    border:0;
+    padding:6px 10px;
+    font-size:14px;
+	width: -webkit-fill-available;
+}
+input[type=submit], a.button {
+    font-weight:bold;
+    background:#12c064;
+    color:#fff;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase;
+}
+.errorlist {
+    color:#cc0033;
+    float:left;
+    clear:both;
+    padding-left:10px;
+}
+.helptext {
+    margin:0 0 20px 0;
+    color:#aaa;
+    clear:both;
+    float:left;
+    font-size:13px;
+}
+/* messages */
+ul.messages {
+    margin:120px 10px 10px 10px;
+    padding:0;
+    list-style-type:
+    none;
+}
+ul.messages li.success,
+ul.messages li.warning,
+ul.messages li.error,
+ul.messages li.info {
+    margin:0;
+    padding:14px 20px;
+    list-style:none;
+    color:#fff;
+}
+
+ul.messages li.success { background:#81ce81; }
+ul.messages li.success a { color:#0ac33e; }
+
+ul.messages li.error { background:#a30029; color:#e9828e; }
+ul.messages li.error a { color:#e9828e; }
+
+ul.messages li.info { background:#faffae; color:#696b4e; }
+ul.messages li.info a { color:#1586de; }
+
+ul.messages li.warning { background:#de9404; }
+ul.messages li.warning a { color:#f49000; }
+
+ul.messages li a.close {
+    margin:0;
+    float:right;
+    opacity:1;
+    border:0;
+    box-shadow:none;
+    text-shadow:none;
+}
+
+.login-form {
+    float:left;
+}
+
+/* social-auth */
+.social {
+    float:right;
+}
+.social li {
+    list-style:none;
+    padding:10px 20px;
+    margin:0 0 10px 0;
+}
+.social li a {
+    width:100%;
+    height:100%;
+    display:block;
+    color:#fff;
+}
+.social li.facebook { background:#3b5399; }
+.social li.twitter { background:#00cffa; }
+.social li.google { background:#de1710; }
+
+
+/* images */
+
+.image-preview, .image-detail {
+    max-width:300px;
+    float:left;
+    margin:0 20px 20px 0;
+}
+.image-detail { margin-top:20px; }
+.image-info div {
+    padding:20px 0;
+    overflow:auto;
+    display: inline-block;
+}
+
+img #book_img{
+    display: block;
+    margin: auto
+}
+
+div #book_img{
+    width: 200px; margin: auto
+}
+
+.image-info{
+    white-space: nowrap;
+    text-align: center;
+}
+.count {
+    color:#aaa;
+    border:3px solid #bbb;
+    border-radius:26px;
+    padding:10px 20px;
+    margin:9px 10px 0 0;
+    float: left;
+}
+a.like, a.follow { float:right; margin-top:12px; }
+
+.btn-group.div-del{
+    padding-right: 10%
+}
+
+a.del {
+    font-weight:bold;
+    width: 52px;
+    background:#c41e15;
+    color:#fff;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase;
+    border-radius:26px;
+    margin:20px 10px 0;
+    /*display: block;*/
+    /*text-align: right;*/
+    /*font-weight:bold;*/
+    /*width: 52px;*/
+    /*background:#c41e15;*/
+    /*color:#fff;*/
+    /*padding:10px 20px;*/
+    /*font-size:14px;*/
+    /*text-transform:uppercase;*/
+}
+
+button[aria-expanded='false']{
+    background-color: #12c064 !important;
+}
+
+button[aria-expanded='true']{
+    background-color: #ddd !important;
+}
+
+
+.btn.btn-default.delete{
+    background-color: #c41e15; !important;
+    border-color: #c41e15; !important;
+    padding-right: 0px; !important;
+    padding-left: 0px; !important;
+}
+
+/*a.edit {*/
+    /*font-weight:bold;*/
+    /*width: 52px;*/
+    /*background:#af9816;*/
+    /*color:#fff;*/
+    /*padding:10px 20px;*/
+    /*font-size:14px;*/
+    /*text-transform:uppercase;*/
+    /*border-radius:26px;*/
+    /*margin:20px 10px 0;*/
+/*}*/
+
+.btn.btn-default.edit{
+    background-color: #af9816;
+    border-color: #af9816;
+    padding-left: 0px;
+    padding-right: 0px
+}
+
+#image-list {
+    overflow:auto;
+    margin-top: 130px;
+}
+
+#image-list .image {
+    float:left;
+    width: 22%;
+    height: auto;
+    margin:0 10px 10px 10px;
+    border-top:8px solid #12c064;
+    background:#eee;
+}
+#image-list img {
+    /*width:220px;*/
+    /*height:220px;*/
+    width: 90%;
+    height: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#image-list .info { padding:10px; }
+#image-list .info a { color:#333; }
+.image-likes div {
+    float:left;
+    width:auto;
+    padding:10px;
+    text-align:center;
+}
+.image-likes img {
+    width:120px;
+    height:120px;
+    border-radius:50%;
+}
+
+#list-header{
+    width: 80%;
+    margin-top: 3px;
+    position: fixed;
+    background: white;
+    padding-top: 10px;
+    opacity: 0.8
+}
+
+.well{
+    margin-top: 45px; !important;
+}
+
+#search-again{
+	margin-top: 0px;
+}
+
+#Add-book{
+	background-color: #12c064;
+	border-color: #12c064;
+	padding-left: 0px;
+	padding-right: 0px
+}
+
+/* users */
+#people-list{
+	margin-top: 130px;
+}
+
+#people-list img {
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    margin-bottom:20px;
+}
+#people-list .user {
+    width:180px;
+    float:left;
+    overflow:auto;
+    padding:10px;
+}
+#people-list .info { text-align:center; }
+img.user-detail {
+    border-radius:50%;
+    float:left;
+}
+.profile-info {
+    float:left;
+    overflow:auto;
+    margin-right:20px;
+}
+.image-container { margin-top:40px; }
+
+#following{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#followers{
+	background-color: #337ab7;
+	border-color: #337ab7;
+	padding-left: 0px;
+    padding-right: 0px;
+}
+
+/* actions */
+.action {
+    clear:both;
+    overflow:auto;
+}
+.action .images {
+    float:left;
+    margin:0 10px 10px 0;
+}
+.action .date {
+    font-style:italic;
+    color:#ccc;
+}
+@media (max-width:9233px) and (min-width: 768px){
+    #image-list .image {
+         float:left;
+        width: 23.2%;
+        height: auto;
+        margin:0 4px 10px 5px;
+        border-top:8px solid #12c064;
+        background:#eee;
+    }
+}
+/* small screens */
+@media (max-width:767px){
+    #content{
+        padding:1px 30px 30px 30px;
+        margin-top: 65px;
+    }
+    h1 {
+    border-bottom:1px solid #bbb;
+    padding:0 0 10px 0;
+    margin:30px 0 20px 0;
+    }
+    #list-header{
+        width: 100%;
+		margin-left: -5%;
+    }
+    #image-list {
+        overflow:auto;
+        margin-top: 130px;
+		clear: both;
+		padding-top: 30px;
+    }
+
+    #list-header h1{
+        text-align: center;
+    }
+
+    #image-list img {
+        /*width:220px;*/
+        /*height:220px;*/
+        width: 100%;
+        height: auto;
+        padding-right: 0;
+        padding-left: 0;
+    }
+	
+	.count{
+		margin-right: 0px;
+		padding-left: 5px;
+		padding-right: 5px;
+		width: 100%;
+		clear: both;
+		text-align: center;
+	}
+
+    #image-list .image {
+    float:left;
+    width: 100%;
+    height: auto;
+    margin:0 5px 10px 5px;
+    border-top:8px solid #12c064;
+    background:#eee;
+
+	}
+	.profile-info{
+		margin-left: 20px;
+	
+	}
+
+    
+    .btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .modal-header:after, .modal-header:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
+        display: table;
+        content: " ";
+    }
+    .show_br{
+        width: 100%;
+        text-align: center;
+        clear: both;
+    }
+	
+    /*#header .user {*/
+    /*color:#f3f7cc;*/
+    /*}*/
+    /*#header .user:hover {*/
+    /*color:#fff;*/
+    /*}*/
+    #header .user {
+    float:initial;
+    padding-top:15px;
+    text-align: center;
+    }
+    .well{
+        margin-top: 0;!important;
+    }
+	a.follow, a.like{
+		padding-left: 2px;
+		padding-right: 2px;
+		width: 100%;
+		text-align: center;
+		margin-right: -10px;
+	}
+	#search-header{
+		text-align: center;
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+	#search-again{
+		padding-top: 10px;
+		margin-top: 10px;
+	}
+	#del-edit{
+		padding-top: 20px;
+		padding-left: 6px;
+	}
+
+}
+@media (max-width:450px){
+	#list-header{
+        width: 100%;
+		margin-left: -7%;
+    }
+}
+@media (max-width:363px){
+
+	a.follow, a.like{
+		padding-right: 2px;
+		padding-left: 2px;
+		margin-top: 12px;
+		width: 100%;
+		text-align: center;
+		margin-right: -10px;
+	}
+	.profile-info{
+		margin-left: 15px;
+	
+	}
+	#followers{
+		padding-left: 0px;
+		padding-right: 0px;
+		font-size: 12px;
+	}
+	#Add-book{
+		font-size: 12px;
+	}
+	
+	#following{
+		font-size: 12px;
+	}
+	#your-book{
+	    text-align: center;
+		margin-left: -8px;
+	}
+}
