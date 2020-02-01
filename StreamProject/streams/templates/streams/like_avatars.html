@@ -1,0 +1,12 @@
+<div class="image-likes" style="clear: both">
+    {% for user in stream.users_like.all %}
+        <div>
+        <a href="{% url "user_detail" user %}">
+            <img src="{{ user.profile.photo.url }}">
+            <p>{{ user.first_name }}</p>
+        </a>
+        </div>
+    {% empty %}
+        Nobody likes this image yet.
+    {% endfor %}
+</div>

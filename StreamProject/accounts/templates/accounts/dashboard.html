@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+{#    <h1>Dashboard</h1>#}
+
+    <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top: 40px; padding-left: 0px; padding-right: 0px">
+        <div class="card hovercard">
+            <div class="card-background">
+                <img class="card-bkimg" alt="" src="{{ request.user.profile.photo|thumbnail_url:'avatar' }}">
+                <!-- http://lorempixel.com/850/280/people/9/ -->
+            </div>
+            <div class="useravatar">
+                <img alt="" src="{{ request.user.profile.photo|thumbnail_url:'avatar' }}">
+            </div>
+            <div class="card-info"> <span class="card-title">{{ request.user.first_name }}{{ request.user.last_name }}</span>
+
+            </div>
+        </div>
+        <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <a href="{% url 'user_followers' %}">
+                    <button type="button" id="followers" class="btn btn-primary">
+                        <div style="color: white">Followers</div>
+                    </button>
+                </a>
+            </div>
+            {% if request.user.is_staff %}
+                <div class="btn-group" role="group">
+                    <a href="{% url 'images:stream_create' %}">
+                        <button id="Add-book" type="button" id="favorites" class="btn btn-default">
+                            <div style="color: white">Add Stream</div>
+                        </button>
+                    </a>
+                </div>
+            {% endif %}
+            <div class="btn-group" role="group">
+                <a href="{% url 'user_following' %}">
+                    <button type="button" id="following" class="btn btn-default">
+                        <div>Following</div>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="well">
+		<div class="tab-content">
+			<div class="" id="tab1">
+				{% with total_books_created=request.user.book_created.count %}
+                    <p style="text-align: center">Welcome to your dashboard. {% if request.user.is_staff %}You have bookmarked {{ total_books_created }} books{{ total_books_created|pluralize }}.{% endif %}</p>
+                    <p style="text-align: center">You can also <a href="{% url "edit" %}">edit your profile</a> or <a href="{% url "password_change" %}">change your password</a>.<p>
+                {% endwith %}
+			</div>
+		</div>
+        {% if request.user.is_staff %}
+            <div style="text-align: center">
+                <a id="your-book" href="{% url 'user_stream_list'%}" class="button"> Your Streams </a>
+            </div>
+        {% endif %}
+
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12" style="padding: 5px 0 5px 0;background-color: #337ab7;border-radius: 4px">
+        <a style="color: white;text-decoration: none ">
+            <span style="padding-right: 0px; padding-left: 0px; width: 100%; text-align: center;">
+                <div>Time Line</div>
+            </span>
+        </a>
+    </div>
+    <div id="timeline" class="well">
+		<div class="tab-content">
+			<div class="" id="tab2">
+{#                <p>Your Streams</p>#}
+
+                    <div id="image-list" class="infinite-container" style="margin-top: 30px">
+                {#    {% for usr in request.user.following.all %}#}
+                        {% include "images/book/list_ajax.html" %}
+                {#    {% endfor %}#}
+                    </div>
+<!-- {#				{% with total_books_created=request.user.book_created.count %}#} -->
+{#                    <p style="text-align: center">Welcome to your dashboard. {% if request.user.is_staff %}You have bookmarked {{ total_books_created }} books{{ total_books_created|pluralize }}.{% endif %}</p>#}
+{#                    <p style="text-align: center">You can also <a href="{% url "edit" %}">edit your profile</a> or <a href="{% url "password_change" %}">change your password</a>.<p>#}
+{#                {% endwith %}#}
+			</div>
+		</div>
+    </div>
+
+
+
+{#    {% if request.user.is_staff %}#}
+{#        <p>Add a new book -> <a href="{% url 'images:book_create' %}" class="button"> Add! </a></p>#}
+{#    {% endif %}#}
+
+{#    <a href="{% url 'user_followers' %}" class="button del"> Followers </a>#}
+{#    <a href="{% url 'user_following' %}" class="button edit"> Following </a>#}
+{#    <h2>What's happening</h2>#}
+
+{% endblock %}
+{% block domready %}
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0]
+    });
+{% endblock %}

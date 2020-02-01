@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Streams{% endblock %}
+{% block content %}
+    <div id="list-header">
+        <h1>Streams</h1>
+    </div>
+    <div id="image-list" class="infinite-container">
+        {% include "streams/my_stream_list_ajax.html" %}
+    </div>
+{% endblock %}
+
+{% block domready %}
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0]
+    });
+{% endblock %}
+{#    var page = 1;#}
+{#    var empty_page = false;#}
+{#    var block_request = false;#}
+{##}
+{#    $(window).scroll(function() {#}
+{#        var margin = $(document).height() - $(window).height() - 200;#}
+{#        if  ($(window).scrollTop() > margin && empty_page == false && block_request == false) {#}
+{#		    block_request = true;#}
+{#		    page += 1;#}
+{#		    $.get('?page=' + page, function(data) {#}
+{#		        if(data == '')#}
+{#		        {#}
+{#		            empty_page = true;#}
+{#		        }#}
+{#		        else {#}
+{#                    block_request = false;#}
+{#                    $('#image-list').append(data);#}
+{#    	        }#}
+{#            });#}
+{#    	}#}
+{#    });#}
+

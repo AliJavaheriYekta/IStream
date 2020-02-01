@@ -1,0 +1,14 @@
+{% load thumbnail %}
+
+{% for stm in streams %}
+    <div class="image">
+        <a href= {{stm.path}}>
+                <a href={{stm.path}}>
+                    <img src={{ stm.thumbnail_url }} alt="" />
+                </a>
+        </a>
+        <div class="info">
+            <a href={{stm.path}} class="title">{{ stm.user_name }}</a>
+        </div>
+    </div>
+{% endfor %}

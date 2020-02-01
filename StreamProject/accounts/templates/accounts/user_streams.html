@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}My Streams{% endblock %}
+{% block content %}
+    <div id="list-header">
+        <h1>My Streams</h1>
+    </div>
+    <div id="image-list" class="infinite-container">
+        {% include "images/book/my_stream_list_ajax.html" %}
+    </div>
+{% endblock %}
+
+{% block domready %}
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0]
+    });
+{% endblock %}

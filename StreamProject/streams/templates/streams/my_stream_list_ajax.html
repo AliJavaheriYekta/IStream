@@ -1,0 +1,18 @@
+{% load thumbnail %}
+
+{% for stream in streams %}
+    <div class="image infinite-item">
+        <a href="{{ stream.url }}">
+                <a href="{{ stream.url }}">
+                    <img src="{{ stream.banner }}" alt="" />
+                </a>
+        </a>
+        <div class="info">
+            <a href="{{ stream.url }}" class="title">{{ stream.user_name }}</a>
+        </div>
+    </div>
+{% endfor %}
+
+{% if books.has_next %}
+    <a class="infinite-more-link" href="?page={{ books.next_page_number }}"></a>
+{% endif %}

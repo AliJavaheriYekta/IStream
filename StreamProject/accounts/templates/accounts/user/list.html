@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block title %}People{% endblock %}
+
+{% block content %}
+    <div id="list-header">
+        <h1>People</h1>
+    </div>
+    <div id="people-list">
+        {% for user in users %}
+            <div class="user">
+                <a href="{{ user.get_absolute_url }}">
+                    <img src="{{ user.profile.photo|thumbnail_url:'avatar' }}" alt="" />
+                </a>
+                <div class="info">
+                    <a href="{{ user.get_absolute_url }}" class="title">{{ user.get_full_name }}</a>
+                </div>
+            </div>
+		{% empty %}
+            <div class="alert alert-warning">
+                 There are no users here
+            </div>
+        {% endfor %}
+	
+    </div>
+{% endblock %}
